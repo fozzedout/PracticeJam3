@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bkqnv1peac3qr" path="res://Tilemap/tile_map.tscn" id="1_kdmce"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="2_3m7h0"]
-[ext_resource type="PackedScene" uid="uid://0j7vbcah10mo" path="res://Scenes/Player/PlayerNode.tscn" id="3_c6i61"]
+[ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/Player/Player.tscn" id="3_c6i61"]
+
 
 [node name="Node2D" type="Node2D"]
 

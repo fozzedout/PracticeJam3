@@ -69,6 +69,7 @@ func set_swing(value = false):
 	#animation_tree["parameters/conditions/swing"] = value
 	
 func death() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Main_Menu.tscn")
 	print("You died");
 
 func shoot():
