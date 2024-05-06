@@ -28,7 +28,7 @@ func _on_button_settings_back_pressed():
 func _on_button_credits_pressed():
 	on_confirm.play()
 	await get_tree().create_timer(0.2).timeout
-	get_tree().change_scene_to_file("res://Scenes/Credits.tscn")
+	get_tree().change_scene_to_file("res://Scenes/credits.tscn")
 
 func _on_button_quit_pressed():
 	on_confirm.play()
