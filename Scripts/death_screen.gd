@@ -1,7 +1,7 @@
 extends Control
 
 func _on_button_retry_pressed():
-	var level = "res://Scenes/Levels/level{level}.tscn".format({"level": randi_range(1,12)})
+	var level = "res://Scenes/Levels/Level{level}.tscn".format({"level": randi_range(1,12)})
 	var player_vars = get_node("/root/PlayerVariables")
 	player_vars.level_health = 1
 	player_vars.level_speed = 1

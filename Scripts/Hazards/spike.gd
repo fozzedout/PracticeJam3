@@ -4,7 +4,7 @@ class_name SpikeHazard
 @export var knockback_strength = 10
 @export var damage = 2
 
-func _process(delta):
+func _process(_delta):
 	var touching = get_overlapping_areas()
 	for area in touching:
 		var entity = area.get_parent()

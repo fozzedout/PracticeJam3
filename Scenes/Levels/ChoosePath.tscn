@@ -163,7 +163,6 @@ script = ExtResource("1_q8w8r")
 
 [node name="ColorRect" type="ColorRect" parent="Fade"]
 visible = false
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -281,6 +280,10 @@ visible = false
 position = Vector2(2.08165e-12, 10)
 texture = ExtResource("14_wohe0")
 
+[node name="PathChosen" type="Timer" parent="."]
+one_shot = true
+script = ExtResource("1_q8w8r")
+
 [connection signal="animation_finished" from="Fade" to="Fade" method="_on_animation_finished"]
 [connection signal="body_entered" from="Portals/Power" to="Portals/Power" method="_on_body_entered"]
 [connection signal="body_exited" from="Portals/Power" to="Portals/Power" method="_on_body_exited"]
@@ -288,5 +291,6 @@ texture = ExtResource("14_wohe0")
 [connection signal="body_exited" from="Portals/Speed" to="Portals/Speed" method="_on_body_exited"]
 [connection signal="body_entered" from="Portals/Health" to="Portals/Health" method="_on_body_entered"]
 [connection signal="body_exited" from="Portals/Health" to="Portals/Health" method="_on_body_exited"]
+[connection signal="timeout" from="PathChosen" to="PathChosen" method="_on_timeout"]
 
 [editable path="GameManager"]

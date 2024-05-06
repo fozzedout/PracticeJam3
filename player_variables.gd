@@ -1,16 +1,7 @@
 extends Node
 
-@export var level_health = 1
-@export var level_speed = 1
-@export var level_strength = 1
-@export var health = 1
-@export var total_levels = 0
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@export var level_health: int = 1
+@export var level_speed: int = 1
+@export var level_strength: int = 1
+@export var health: int = 1
+@export var total_levels: int = 0

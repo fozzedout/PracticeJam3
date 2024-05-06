@@ -35,17 +35,17 @@ var nav_loaded: bool = false
 func _ready():
 	call_deferred("actor_setup")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !nav_loaded:
 		nav_loaded = true
 		return
 
 	if target:
-		move_towards_target(delta)
-		shoot_player(delta)
+		move_towards_target()
+		shoot_player()
 		move_and_slide()
 
-func move_towards_target(delta) -> void:
+func move_towards_target() -> void:
 	if !nav_loaded:
 		nav_loaded = true
 		return
@@ -68,7 +68,7 @@ func move_towards_target(delta) -> void:
 	var next_path_pos: Vector2 = nav.get_next_path_position()
 	velocity = global_position.direction_to(next_path_pos) * move_speed
 
-func shoot_player(delta) -> void:
+func shoot_player() -> void:
 	if state != STATES.READY:
 		return
 	
@@ -96,7 +96,7 @@ func death() -> void:
 	player_vars.total_levels += 1
 	if get_tree().get_nodes_in_group("enemy").size() == 1:
 		print("level complete")
-		get_tree().change_scene_to_file("res://Scenes/Levels/ChoosePath.tscn")
+		get_node("/root/Level/LevelComplete").start()
 	queue_free()
 
 func actor_setup():
@@ -113,10 +113,14 @@ func actor_setup():
 func take_damage(dmg) -> void:
 	if !is_invul:
 		health -= dmg
+		if health <= 0:
+			return
+		
 		sprite.modulate = Color.RED
 		is_invul = true
 		feet_hitbox.set_deferred("monitorable", false)
-		invul_timer.start()
+		if invul_timer != null:
+			invul_timer.start()
 
 func end_invulnerable() -> void:
 	sprite.modulate = Color.WHITE

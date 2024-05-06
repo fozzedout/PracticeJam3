@@ -16,8 +16,8 @@ enum STATES { READY, FIRING, RELOADING, SPECIAL }
 
 @export var BULLET_SCENE: PackedScene
 @export var target: Player
-@export var damage := 10 #damage for the bullets, for laser dmg check laser scene
-@export var health := 1000:
+@export var damage: int = 10 #damage for the bullets, for laser dmg check laser scene
+@export var health: int = 1000:
 	set(val):
 		if val <= 0:
 			death()
@@ -33,13 +33,13 @@ func _ready():
 	anim_tree.set("parameters/conditions/is_idle", true)
 	call_deferred("actor_setup")
 
-func _process(delta):
+func _process(_delta):
 	point_laser()
-	move_towards_target(delta)
+	move_towards_target()
 	shoot_player()
 	move_and_slide()
 
-func move_towards_target(delta) -> void:
+func move_towards_target() -> void:
 	if(!target):
 		return
 	var distance_to_player := position.distance_to(target.position)

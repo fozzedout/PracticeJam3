@@ -1,20 +1,5 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_ready():
-	pass
-
-
 func scene_spawner():
 	print("scene_spawner")
 	var scene = get_node("/root/Level")
@@ -47,3 +32,11 @@ func _on_animation_finished(anim_name):
 func _on_timer_timeout():
 	scene_spawner()
 
+func _on_level_complete_timeout():
+	get_tree().change_scene_to_file("res://Scenes/Levels/ChoosePath.tscn")
+
+
+func _on_timeout():
+	var level = "res://Scenes/Levels/Level{level}.tscn".format({"level": randi_range(1,12)})
+	get_tree().change_scene_to_file(level)
+	

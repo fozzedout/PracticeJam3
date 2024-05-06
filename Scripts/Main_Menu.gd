@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var main = $Main
 @onready var settings = $Settings
-@onready var audioPlayer = $"../AudioStreamPlayer"
+#@onready var audioPlayer = $"../AudioStreamPlayer"
 @onready var on_hover = $"../On_Hover"
 @onready var on_confirm = $"../On_Confirm"
 

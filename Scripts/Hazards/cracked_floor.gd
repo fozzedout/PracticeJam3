@@ -7,7 +7,7 @@ class_name CrackedFloor
 var is_collapsing := false
 var collapsed := false
 
-func _process(delta):
+func _process(_delta):
 	if !collapsed:
 		var touching = get_overlapping_areas()
 		#if touching.is_empty() && !collapse_timer.is_stopped():
